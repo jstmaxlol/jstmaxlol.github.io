@@ -5,11 +5,11 @@
         <link>https://jstmaxlol.github.io/motd/rss.xml</link>
         <description>(possibly) interesting MOTDs about [our] life</description>
         <language>en-us</language>
-        <item>
+        <guid>
             <title>january 13th, 2025 - ヾ(≧▽≦*)o</title>
             <link>https://jstmaxlol.github.io/motd/latest</link>
             <description>moved the MOTD here for </description>
             <pubDate>Mon, 13 Jan 2025 21:25:13 GMT</pubDate>
-        </item>
+        </guid>
     </channel>
 </rss>
