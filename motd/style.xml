@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:template match="/">
+    <html>
+      <head>
+        <title><xsl:value-of select="rss/channel/title" /></title>
+        <style>
+          body { font-family: Arial, sans-serif; }
+          h1 { color: #3366cc; }
+          .item { margin-bottom: 20px; }
+          .item-title { font-weight: bold; }
+        </style>
+      </head>
+      <body>
+        <h1><xsl:value-of select="rss/channel/title" /></h1>
+        <p><xsl:value-of select="rss/channel/description" /></p>
+        <xsl:for-each select="rss/channel/item">
+          <div class="item">
+            <div class="item-title">
+              <a href="{link}">
+                <xsl:value-of select="title" />
+              </a>
+            </div>
+            <div class="item-description">
+              <xsl:value-of select="description" />
+            </div>
+            <div class="item-date">
+              <xsl:value-of select="pubDate" />
+            </div>
+          </div>
+        </xsl:for-each>
+      </body>
+    </html>
+  </xsl:template>
+</xsl:stylesheet>
