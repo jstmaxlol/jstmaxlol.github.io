@@ -182,11 +182,11 @@ void updateFile(const std::string& owner, const std::string& repo, const std::st
     curl_slist_free_all(headers);
 }
 
-int main() {                         // basically:
-    std::string owner = ""; // you put your github username here e.g. jstmaxlol
-    std::string repo = ""; // your repo's name here e.g. jstmaxlol.github.io
+int main() {                   // basically:
+    std::string owner = "";    // you put your github username here e.g. jstmaxlol
+    std::string repo = "";     // your repo's name here e.g. jstmaxlol.github.io
     std::string filePath = ""; // the file's name in that repo here e.g. motd/index.html
-    std::string token = ""; // your secret fine-grained token here (i obviously removed mine)
+	std::string token = "";    // your secret fine-grained token here (i obviously removed mine)
 
     std::string sha = fetchFileSHA(owner, repo, filePath, token);
     if (sha.empty()) {
@@ -199,8 +199,9 @@ int main() {                         // basically:
     }
 	
 	std::string userContent;
-	std::cout << "msg: ";
+	std::cout << "\"\n";
 	std::getline(std::cin, userContent);
+	std::cout << "\"\n";
 
     std::string updatedContent = updateLine(content, userContent);
     if (updatedContent.empty()) {
@@ -210,6 +211,8 @@ int main() {                         // basically:
 
     std::string encodedContent = base64Encode(updatedContent);
     updateFile(owner, repo, filePath, token, sha, encodedContent);
+
+	std::cout << "\n[n!] all done!";
 
     return 0;
 }
